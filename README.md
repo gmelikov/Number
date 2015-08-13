@@ -50,6 +50,10 @@ DataValues Number has been written by Daniel Kinzler, as [Wikimedia Germany]
 
 ## Release notes
 
+### 0.6.1 (2015-09-09)
+
+* `QuantityParser` now accepts URIs as units.
+
 ### 0.6.0 (2015-09-09)
 
 #### Breaking changes

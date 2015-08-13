@@ -158,7 +158,7 @@ class QuantityParser extends StringValueParser {
 				. '|(?:\+/?-|±)\s*(' . $numberPattern . ')' // $3: plus/minus offset (uncertainty margin)
 				. '|' // or nothing
 			. ')'
-			. '\s*(' . $unitPattern . ')?' // $4: unit
+			. '\s*(\bhttps?://\S+|' . $unitPattern . ')?' // $4: unit
 			. '\s*$@u';
 
 		if ( !preg_match( $pattern, $value, $groups ) ) {
@@ -166,9 +166,7 @@ class QuantityParser extends StringValueParser {
 		}
 
 		for ( $i = 1; $i <= 4; $i++ ) {
-			if ( !isset( $groups[$i] ) ) {
-				$groups[$i] = null;
-			} elseif ( $groups[$i] === '' ) {
+			if ( !isset( $groups[$i] ) || $groups[$i] === '' ) {
 				$groups[$i] = null;
 			}
 		}
